@@ -5,9 +5,7 @@ import au.com.dius.pact.consumer.PactProviderRuleMk2;
 import au.com.dius.pact.consumer.PactVerification;
 import au.com.dius.pact.consumer.dsl.PactDslWithProvider;
 import au.com.dius.pact.model.RequestResponsePact;
-import com.elsevier.submissions.dto.MessageDto;
 import io.pactfoundation.consumer.dsl.LambdaDsl;
-import org.json.JSONObject;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -32,8 +30,8 @@ public class PactDemoClientTest {
     @PactVerification(fragment = "pactWelcomeMessageExists")
     @Test
     public void welcomeMessageExists() {
-        MessageDto dto = pactDemoClient.getWelcomeMsg("TheJungle");
-        Assert.assertEquals(dto.getMessage(), "Welcome to TheJungle !");
+        String dto = pactDemoClient.getWelcomeMsg("TheJungle");
+        Assert.assertEquals(dto, "Welcome to TheJungle !");
     }
 
     //JSONObject obj = new JSONObject().put("message", "Welcome to TheJungle !");

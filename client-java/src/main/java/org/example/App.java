@@ -1,6 +1,5 @@
 package org.example;
 
-import com.elsevier.submissions.dto.MessageDto;
 import org.example.client.PactDemoClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -24,13 +23,13 @@ public class App implements CommandLineRunner
         app.setDefaultProperties(Collections
                 .<String, Object>singletonMap("server.port", "8083"));
         app.run(args);
-       // SpringApplication.run(App.class, args);
+        SpringApplication.run(App.class, args);
 
     }
 
     @Override
-    public void run(String... args) throws Exception {
-        MessageDto msg = pactDemoClient.getWelcomeMsg("The Jungle");
-        System.out.println("########### " + msg.getMessage() + " ###########");
+    public void run(String... args) {
+        String msg = pactDemoClient.getWelcomeMsg("The Jungle");
+        System.out.println("########### " + msg + " ###########");
     }
 }
