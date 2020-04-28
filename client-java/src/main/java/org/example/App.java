@@ -1,6 +1,8 @@
 package org.example;
 
 import org.example.client.PactDemoClient;
+import org.example.entity.Message;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -8,20 +10,24 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Collections;
 
+import static org.slf4j.LoggerFactory.getLogger;
+
 /**
  * Hello world!
  *
  */
 @SpringBootApplication
-public class App implements CommandLineRunner
-{
+public class App implements CommandLineRunner {
+    
+    private static final Logger LOG = getLogger(App.class);
+    
     @Autowired
     private PactDemoClient pactDemoClient;
 
     public static void main( String[] args ) {
         SpringApplication app = new SpringApplication(App.class);
         app.setDefaultProperties(Collections
-                .<String, Object>singletonMap("server.port", "8083"));
+                .singletonMap("server.port", "8083"));
         app.run(args);
         SpringApplication.run(App.class, args);
 
@@ -29,7 +35,7 @@ public class App implements CommandLineRunner
 
     @Override
     public void run(String... args) {
-        String msg = pactDemoClient.getWelcomeMsg("The Jungle");
-        System.out.println("########### " + msg + " ###########");
+        Message msg = pactDemoClient.getWelcomeMsg("The Jungle");
+        LOG.info("########### {} ###########", msg);
     }
 }
