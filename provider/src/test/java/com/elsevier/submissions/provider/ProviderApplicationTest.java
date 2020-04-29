@@ -15,9 +15,9 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 
 @RunWith(SpringRestPactRunner.class)
 @Provider("demo-provider")
-@PactBroker(protocol = "http", host = "demo-broker", port = "9292", tags = {"latest"})
+@PactBroker(host = "demo-broker", port = "9292", tags = {"latest"})
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
-public class PactproviderdemoApplicationTests {
+public class ProviderApplicationTest {
     
     @TestTarget
     public final Target target = new SpringBootHttpTarget();

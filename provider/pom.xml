@@ -62,11 +62,51 @@
         </dependency>
     </dependencies>
 
+<!--    <profiles>-->
+<!--        <profile>-->
+<!--            &lt;!&ndash; publish consumer tests on Jenkins build (with integration tests) &ndash;&gt;-->
+<!--            <id>pact-publish</id>-->
+<!--            <build>-->
+<!--                <plugins>-->
+<!--                    <plugin>-->
+<!--                        <groupId>au.com.dius</groupId>-->
+<!--                        <artifactId>pact-jvm-provider-maven_2.12</artifactId>-->
+<!--                        <executions>-->
+<!--                            <execution>-->
+<!--                                <id>pact-publish</id>-->
+<!--                                <goals>-->
+<!--                                    <goal>publish</goal>-->
+<!--                                </goals>-->
+<!--                                <phase>verify</phase>-->
+<!--                            </execution>-->
+<!--                        </executions>-->
+<!--                    </plugin>-->
+<!--                </plugins>-->
+<!--            </build>-->
+<!--        </profile>-->
+<!--    </profiles>-->
+
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>start-app</id>
+                        <goals>
+                            <goal>start</goal>
+                        </goals>
+                        <phase>pre-integration-test</phase>
+                    </execution>
+                    <execution>
+                        <id>stop-app</id>
+                        <goals>
+                            <goal>stop</goal>
+                        </goals>
+                        <phase>post-integration-test</phase>
+                    </execution>
+                </executions>
             </plugin>
 
             <plugin>
@@ -79,6 +119,14 @@
                         <pact.provider.version>${project.version}</pact.provider.version>
                     </systemPropertyVariables>
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>au.com.dius</groupId>
@@ -86,6 +134,7 @@
                 <version>4.0.10</version>
                 <configuration>
                     <pactBrokerUrl>${pactBrokerUrl}</pactBrokerUrl>
+                    <skipPactPublish>false</skipPactPublish>
                     <serviceProviders>
                         <serviceProvider>
                             <name>demo-provider</name>
@@ -93,6 +142,20 @@
                         </serviceProvider>
                     </serviceProviders>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>pact-verify</id>
+                        <goals>
+                            <goal>verify</goal>
+                        </goals>
+                        <phase>integration-test</phase>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <pact.verifier.publishResults>true</pact.verifier.publishResults>
+                            </systemPropertyVariables>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

@@ -26,3 +26,10 @@ hs_err_pid*
 /workspace.xml
 **/.DS_Store
 target/
+
+
+# Eclipse and VS files
+**/.classpath
+**/.factorypath
+**/.project
+**/.settings
