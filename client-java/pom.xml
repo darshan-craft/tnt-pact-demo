@@ -85,6 +85,15 @@
             <projectVersion>${project.version}</projectVersion>
             <trimSnapshot>false</trimSnapshot>
           </configuration>
+          <executions>
+            <execution>
+              <id>pact-publish</id>
+              <goals>
+                <goal>publish</goal>
+              </goals>
+              <phase>verify</phase>
+            </execution>
+          </executions>
         </plugin>
       </plugins>
   </build>
