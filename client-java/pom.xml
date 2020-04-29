@@ -15,7 +15,6 @@
     <relativePath/>
   </parent>
 
-  <name>client-java</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -70,7 +69,7 @@
   </dependencies>
 
   <build>
-    <pluginManagement>
+
       <plugins>
         <plugin>
           <groupId>org.springframework.boot</groupId>
@@ -82,12 +81,12 @@
           <artifactId>pact-jvm-provider-maven</artifactId>
           <version>4.0.10</version>
           <configuration>
-            <pactBrokerUrl>http://demo-broker:9292</pactBrokerUrl>
+            <pactBrokerUrl>http://demo-broker:9292/</pactBrokerUrl>
             <projectVersion>${project.version}</projectVersion>
             <trimSnapshot>false</trimSnapshot>
           </configuration>
         </plugin>
       </plugins>
-    </pluginManagement>
+
   </build>
 </project>
