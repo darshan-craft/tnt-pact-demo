@@ -44,7 +44,7 @@ public class PactDemoClientTest {
                 .willRespondWith()
                 .status(200)
                 .body(LambdaDsl.newJsonBody(o -> o
-                        .stringType("message", "Welcome to TheJungle !"))
+                        .stringValue("message", "Welcome to TheJungle !"))
                               .build())
                 .toPact();
     }
