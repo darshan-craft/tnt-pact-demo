@@ -1,0 +1,16 @@
+{
+  "title": "pet-store-client",
+  "groupId": "com.elsevier.submissions.cdd.petstore",
+  "artifactId": "pet-store-client",
+  "artifactVersion": "0.1.0-SNAPSHOT",
+  "modelPackage": "com.elsevier.submissions.cdd.petstore.client.model",
+  "apiPackage": "com.elsevier.submissions.cdd.petstore.client.api",
+  "invokerPackage": "com.elsevier.submissions.cdd.petstore.client",
+  "configPackage": "com.elsevier.submissions.cdd.petstore.client.config",
+  "library": "resttemplate",
+  "dateLibrary": "java8",
+  "hideGenerationTimestamp": true,
+  "useTags": true,
+  "java8": true,
+  "serializableModel": true
+}

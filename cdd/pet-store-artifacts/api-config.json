@@ -1,0 +1,20 @@
+{
+  "title": "pet-store-api",
+  "groupId": "com.elsevier.submissions.cdd.petstore",
+  "artifactId": "pet-store-api",
+  "artifactVersion": "0.1.0-SNAPSHOT",
+  "modelPackage": "com.elsevier.submissions.cdd.petstore.server.model",
+  "apiPackage": "com.elsevier.submissions.cdd.petstore.server.api",
+  "invokerPackage": "com.elsevier.submissions.cdd.petstore.server",
+  "configPackage": "com.elsevier.submissions.cdd.petstore.server.config",
+  "library": "spring-boot",
+  "dateLibrary": "java8",
+  "hideGenerationTimestamp": true,
+  "useTags": true,
+  "java8": true,
+  "interfaceOnly": true,
+  "serializableModel": true,
+  "delegatePattern": true,
+  "skipDefaultInterface": true,
+  "swaggerDocketConfig": true
+}
