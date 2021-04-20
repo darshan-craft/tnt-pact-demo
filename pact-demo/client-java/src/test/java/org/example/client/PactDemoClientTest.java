@@ -30,15 +30,15 @@ public class PactDemoClientTest {
     @PactVerification(fragment = "pactWelcomeMessageExists")
     public void welcomeMessageExists() {
         
-        Message dto = pactDemoClient.getWelcomeMsg("TheJungle");
-        Assert.assertEquals(dto.getMessage(), "Welcome to TheJungle !");
+        Message dto = pactDemoClient.getWelcomeMsg("Submissions");
+        Assert.assertEquals(dto.getMessage(), "Welcome to Submissions !");
     }
     
     @Pact(consumer = "demo-client-java")
     public RequestResponsePact pactWelcomeMessageExists(PactDslWithProvider builder) {
         
-        return builder.given("Message exists").uponReceiving("A request to /welcome/TheJungle").path(
-                "/welcome/TheJungle").method("GET").willRespondWith().status(200).body(
-                LambdaDsl.newJsonBody(o -> o.stringValue("message", "Welcome to TheJungle !")).build()).toPact();
+        return builder.given("Message exists").uponReceiving("A request to /welcome/Submissions").path(
+                "/welcome/Submissions").method("GET").willRespondWith().status(200).body(
+                LambdaDsl.newJsonBody(o -> o.stringValue("message", "Welcome to Submissions !")).build()).toPact();
     }
 }

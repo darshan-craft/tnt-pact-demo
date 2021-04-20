@@ -16,9 +16,9 @@
     </parent>
 
     <modules>
+        <module>pet-store-artifacts</module>
         <module>pet-server</module>
         <module>pet-consumer</module>
-        <module>pet-store-artifacts</module>
     </modules>
 
     <properties>

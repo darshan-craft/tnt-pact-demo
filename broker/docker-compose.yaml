@@ -26,7 +26,7 @@ services:
       PACT_BROKER_DATABASE_HOST: postgres
       PACT_BROKER_DATABASE_NAME: postgres
       PACT_BROKER_PORT: "9292"
-      PACT_BROKER_BASE_URL: "http://demo-broker:9292"
+      PACT_BROKER_BASE_URL: "http://localhost:9292"
 
 volumes:
   postgres-volume:

@@ -19,7 +19,7 @@
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <pactBrokerUrl>http://demo-broker:9292/</pactBrokerUrl>
+        <pactBrokerUrl>http://localhost:9292/</pactBrokerUrl>
     </properties>
 
     <dependencies>
