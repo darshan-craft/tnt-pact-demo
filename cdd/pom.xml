@@ -23,7 +23,7 @@
 
     <properties>
         <swagger-annotations.version>2.1.2</swagger-annotations.version>
-        <openapi.generator.version>4.3.0</openapi.generator.version>
+        <openapi.generator.version>5.1.0</openapi.generator.version>
         <jackson.jsr310.version>2.11.0</jackson.jsr310.version>
         <jackson.databind.nullable.version>0.2.1</jackson.databind.nullable.version>
         <validation-api.version>2.0.1.Final</validation-api.version>
